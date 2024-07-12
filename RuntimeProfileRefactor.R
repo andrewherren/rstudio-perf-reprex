@@ -52,11 +52,11 @@ num_mcmc <- 0
 num_samples <- num_gfr + num_burnin + num_mcmc
 
 # Run BART
-bart <- stochtree::bart(
+bart <- stochtree::bart_specialized(
     X_train = xtemp_train, y_train = Y_train, X_test = xtemp_test, 
     beta = 0.1, alpha = 1, num_trees = 50, num_gfr = num_gfr, 
     num_burnin = num_burnin, num_mcmc = num_mcmc, min_samples_leaf=1, 
-    sample_sigma = F, sample_tau = F, sigma2_init = 0.25
+    sigma2_init = 0.25
 )
 
 # # Evaluate performance
